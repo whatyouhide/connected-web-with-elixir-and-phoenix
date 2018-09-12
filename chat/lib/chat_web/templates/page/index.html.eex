@@ -1,6 +1,7 @@
 <div class="jumbotron">
   <h2>Welcome to LambdaChat!</h2>
   <p class="lead">A real-time chat application that<br />shows the power of Elixir and Phoenix.</p>
+  <p><a href="/about">About</a></p>
 </div>
 
 <ul id="messages" class="row">

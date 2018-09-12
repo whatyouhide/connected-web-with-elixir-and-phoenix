@@ -6,6 +6,6 @@ defmodule Chat.Username do
   and so on.
   """
   def normalize(username) when is_binary(username) do
-    raise "not implemented yet"
+    String.downcase(username)
   end
 end

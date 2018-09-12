@@ -15,10 +15,15 @@ const addMessage = (username, message) => {
 }
 
 // Connect at the socket path in "lib/web/endpoint.ex":
-// TODO: implement
+let socket = new Socket("/socket", {})
+socket.connect()
 
 // Now that you are connected, you can join channels with a topic:
-// TODO: implement
+let channel = socket.channel("room:lobby", {username: prompt('Username?')})
+
+channel.join()
+  .receive("ok", resp => { console.log("Joined successfully", resp) })
+  .receive("error", resp => { console.error("Unable to join", resp) })
 
 // To push to a channel:
 //
@@ -29,10 +34,19 @@ const addMessage = (username, message) => {
 //   channel.on("message", message => {})
 //
 
-// To intercept keypresses:
-//
-//   messageInput.addEventListener('keypress', event => { ... })
-//
-// Note that enter has event.key == "Enter".
+messageInput.addEventListener('keypress', event => {
+  if (event.key == "Enter" && messageInput.value.length > 0) {
+    channel.push("new_message", {username: usernameInput.value, message: messageInput.value})
+    messageInput.value = ""
+  }
+})
+
+channel.on("new_message", message => {
+  addMessage(message.username, message.message)
+})
+
+channel.on("user_joined", message => {
+  addMessage(message.username, "*joined*")
+})
 
 export default socket
