@@ -1,0 +1,14 @@
+/* This file is for your main application css. */
+
+ul#messages {
+  list-style: none;
+  min-height: 200px;
+  padding-bottom: 80px;
+}
+
+#typebox {
+  width: 80%;
+  position: absolute;
+  bottom: 30px;
+  left: 12%;
+}

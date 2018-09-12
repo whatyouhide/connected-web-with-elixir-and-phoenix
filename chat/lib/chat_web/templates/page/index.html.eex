@@ -1,0 +1,17 @@
+<div class="jumbotron">
+  <h2>Welcome to LambdaChat!</h2>
+  <p class="lead">A real-time chat application that<br />shows the power of Elixir and Phoenix.</p>
+</div>
+
+<ul id="messages" class="row">
+</ul>
+
+<div id="typebox" class="row">
+  <div class="col-xs-3">
+    <input class="form-control" type="text" id="username" placeholder="username"/>
+  </div>
+
+  <div class="col-xs-9">
+    <input class="form-control" type="text" id="message" placeholder="message"/>
+  </div>
+</div>
