@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  chat:
+    build: .
+    command: mix phx.server
+    working_dir: /usr/src/app/chat
+    ports:
+      - 4000:4000
+    volumes:
+      - .:/usr/src/app
